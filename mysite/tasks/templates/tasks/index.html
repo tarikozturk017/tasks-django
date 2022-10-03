@@ -1,0 +1,13 @@
+{% extends "tasks/layout.html" %} {% block body %}
+<h1>Tasks</h1>
+<ul>
+  {% for task in tasks %}
+  <li>{{ task }}</li>
+  {% empty %}
+  <!--if empty django gives the following block-->
+  <li>No tasks.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'tasks:add' %}">Add a new task</a>
+<!--django figures out 'add' path based on urls.py file-->
+{% endblock %}
